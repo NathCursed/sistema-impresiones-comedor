@@ -1,0 +1,14 @@
+flowchart TD
+    I([Inicio]) --> L{"¿Sesión iniciada?"}
+    L -- No --> LG["Iniciar sesión<br/>usuario y contraseña"] --> L
+    L -- Sí --> N["Nuevo pedido"]
+    N --> D["Escribir cliente, teléfono,<br/>tipo y notas"]
+    D --> S["Poner cantidades de<br/>impresiones y/o comida"]
+    S --> T["El sistema muestra<br/>el total en vivo"]
+    T --> G["Guardar pedido"]
+    G --> V{"¿Datos válidos?"}
+    V -- No --> E["Mostrar error"] --> S
+    V -- Sí --> BD[("Guardar pedido y detalle<br/>en la base de datos")]
+    BD --> K["Ver pedido / imprimir ticket"]
+    K --> ES["Cambiar estado hasta<br/>Entregado"]
+    ES --> F([Fin])

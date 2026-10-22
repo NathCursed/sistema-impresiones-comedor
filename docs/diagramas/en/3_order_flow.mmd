@@ -1,0 +1,14 @@
+flowchart TD
+    I([Start]) --> L{"Logged in?"}
+    L -- No --> LG["Log in<br/>username and password"] --> L
+    L -- Yes --> N["New order"]
+    N --> D["Enter customer, phone,<br/>type and notes"]
+    D --> S["Enter quantities of<br/>printing and/or food"]
+    S --> T["System shows<br/>the live total"]
+    T --> G["Save order"]
+    G --> V{"Valid data?"}
+    V -- No --> E["Show error"] --> S
+    V -- Yes --> BD[("Save order and details<br/>in the database")]
+    BD --> K["View order / print ticket"]
+    K --> ES["Change status until<br/>Delivered"]
+    ES --> F([End])

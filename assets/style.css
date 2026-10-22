@@ -1,0 +1,132 @@
+/* ===== Sistema de Impresiones y Comedor ===== */
+:root {
+  --primario: #1d4ed8;
+  --primario-osc: #1e3a8a;
+  --imp: #2563eb;      /* color del área Impresiones */
+  --com: #ea580c;      /* color del área Comida */
+  --fondo: #f4f6fa;
+  --texto: #1f2937;
+  --suave: #6b7280;
+  --borde: #e5e7eb;
+  --blanco: #ffffff;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, "Segoe UI", Arial, sans-serif; background: var(--fondo); color: var(--texto); }
+a { color: var(--primario); }
+h1 { margin: 0 0 16px; font-size: 1.6rem; }
+h1 small { font-size: .9rem; color: var(--suave); font-weight: 400; }
+h2 { margin: 0 0 12px; font-size: 1.2rem; }
+h3 { margin: 14px 0 6px; font-size: .95rem; color: var(--suave); text-transform: uppercase; letter-spacing: .04em; }
+
+/* Barra superior */
+.barra { background: var(--primario-osc); color: #fff; padding: 10px 20px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; }
+.marca { font-weight: 700; font-size: 1.15rem; }
+.barra nav { display: flex; flex-wrap: wrap; gap: 4px; flex: 1; }
+.barra nav a { color: #dbe4ff; text-decoration: none; padding: 6px 12px; border-radius: 6px; font-weight: 600; }
+.barra nav a:hover, .barra nav a.activo { background: rgba(255,255,255,.15); color: #fff; }
+.usuario { font-size: .85rem; color: #dbe4ff; }
+.usuario a { color: #fff; }
+
+main { max-width: 1150px; margin: 24px auto; padding: 0 16px; }
+.pie { text-align: center; color: var(--suave); padding: 24px; font-size: .85rem; }
+
+/* Formularios */
+input, select, textarea { width: 100%; padding: 9px 11px; border: 1px solid #cfd5df; border-radius: 7px; font: inherit; margin-top: 4px; background: #fff; }
+input:focus, select:focus { outline: 2px solid #93c5fd; border-color: var(--primario); }
+label { font-weight: 600; font-size: .9rem; }
+button, .btn { background: var(--primario); color: #fff; border: 0; padding: 9px 18px; border-radius: 7px; cursor: pointer; font: inherit; font-weight: 600; text-decoration: none; display: inline-block; }
+button:hover, .btn:hover { background: var(--primario-osc); }
+.btn-sec { display: inline-block; padding: 9px 18px; border-radius: 7px; background: #e5e7eb; color: var(--texto); text-decoration: none; border: 0; font: inherit; cursor: pointer; }
+.btn-sec:hover { background: #d1d5db; }
+button.peligro { background: #dc2626; padding: 5px 10px; font-size: .85rem; }
+.ancho { width: 100%; margin-top: 8px; }
+.botones { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+
+.tarjeta { background: var(--blanco); border-radius: 10px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,.07); margin-bottom: 16px; }
+.rejilla { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.angosto { max-width: 480px; }
+.completo { grid-column: 1 / -1; }
+.check { display: flex; align-items: center; gap: 8px; }
+.check input { width: auto; margin: 0; }
+.dos-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
+.fila-titulo { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 14px; }
+.fila-titulo h1, .fila-titulo h2 { margin: 0; }
+.filtros { display: flex; flex-wrap: wrap; gap: 8px; align-items: end; margin-bottom: 14px; }
+.filtros input, .filtros select { width: auto; margin: 0; }
+.filtros input[type=text] { min-width: 240px; }
+
+/* Tablas */
+table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,.07); }
+.tarjeta table { box-shadow: none; }
+th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--borde); font-size: .93rem; }
+th { background: #eef2ff; font-weight: 700; }
+tfoot td { background: #f9fafb; }
+tr.inactivo td { color: #9ca3af; }
+.vacio { text-align: center; color: var(--suave); padding: 24px; }
+.acciones { display: flex; gap: 10px; align-items: center; }
+.acciones form { margin: 0; }
+.nota { color: var(--suave); font-size: .85rem; }
+
+/* Tarjetas de números */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 18px; }
+.stat { background: #fff; border-radius: 10px; padding: 16px; box-shadow: 0 1px 3px rgba(0,0,0,.07); border-top: 4px solid var(--primario); }
+.stat strong { display: block; font-size: 1.7rem; }
+.stat span { color: var(--suave); font-size: .9rem; }
+.stat.imp { border-top-color: var(--imp); }
+.stat.com { border-top-color: var(--com); }
+
+/* Estados */
+.etiqueta, .chip { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: .8rem; font-weight: 700; text-decoration: none; }
+.chip { padding: 8px 14px; font-size: .9rem; }
+.estados-resumen { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+.est-pendiente   { background: #fef3c7; color: #92400e; }
+.est-en-proceso  { background: #dbeafe; color: #1e40af; }
+.est-listo       { background: #dcfce7; color: #166534; }
+.est-entregado   { background: #e5e7eb; color: #374151; }
+.est-cancelado   { background: #fee2e2; color: #991b1b; }
+.botones-estado { display: flex; flex-wrap: wrap; gap: 8px; }
+.botones-estado button { border: 1px solid rgba(0,0,0,.08); }
+.botones-estado button:hover { filter: brightness(.95); }
+
+/* Nuevo pedido */
+.linea-item { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 6px 0; border-bottom: 1px dashed var(--borde); }
+.linea-item small { color: var(--suave); font-weight: 400; }
+.linea-item input { width: 80px; margin: 0; text-align: center; }
+.linea-item.con-cantidad { background: #f0f9ff; }
+.barra-total { position: sticky; bottom: 0; background: #fff; border-top: 3px solid var(--primario); padding: 14px 20px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 -2px 8px rgba(0,0,0,.08); border-radius: 10px 10px 0 0; font-size: 1.2rem; }
+.barra-total strong { font-size: 1.6rem; color: var(--primario); }
+
+/* Ticket */
+.ticket { font-family: "Courier New", monospace; }
+.ticket-encabezado { text-align: center; border-bottom: 1px dashed #999; padding-bottom: 10px; margin-bottom: 10px; }
+.tabla-ticket th, .tabla-ticket td { padding: 5px; font-size: .85rem; background: none; }
+.gracias { text-align: center; margin-top: 14px; }
+
+/* Alertas */
+.alerta { padding: 11px 15px; border-radius: 8px; margin-bottom: 14px; }
+.alerta.ok { background: #dcfce7; color: #166534; }
+.alerta.error { background: #fee2e2; color: #991b1b; }
+
+/* Login */
+.pantalla-login { min-height: 100vh; display: grid; place-items: center; background: linear-gradient(135deg, #1e3a8a, #ea580c); padding: 16px; }
+.login { width: 100%; max-width: 380px; display: grid; gap: 12px; }
+.login .logo { font-size: 2.5rem; text-align: center; }
+.login h1 { text-align: center; margin: 0; }
+.login .sub { text-align: center; color: var(--suave); margin: 0 0 6px; }
+
+/* Celulares */
+@media (max-width: 760px) {
+  .rejilla, .dos-col { grid-template-columns: 1fr; }
+  table { display: block; overflow-x: auto; }
+  .filtros input[type=text] { min-width: 0; width: 100%; }
+}
+
+/* Impresión: solo se imprime el ticket o el reporte */
+@media print {
+  .barra, .pie, .no-imprimir, .alerta { display: none !important; }
+  body { background: #fff; }
+  main { margin: 0; max-width: none; }
+  .dos-col { display: block; }
+  .tarjeta { box-shadow: none; }
+  .ticket { max-width: 80mm; margin: 0 auto; padding: 0; }
+}

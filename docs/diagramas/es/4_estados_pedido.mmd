@@ -1,0 +1,12 @@
+stateDiagram-v2
+    [*] --> Pendiente : se crea el pedido
+    Pendiente --> En_proceso : se empieza a preparar
+    En_proceso --> Listo : terminado
+    Listo --> Entregado : el cliente lo recoge
+    Pendiente --> Cancelado
+    En_proceso --> Cancelado
+    Listo --> Cancelado
+    Entregado --> [*]
+    Cancelado --> [*]
+    En_proceso : En proceso
+    Cancelado : Cancelado (no suma en ventas)

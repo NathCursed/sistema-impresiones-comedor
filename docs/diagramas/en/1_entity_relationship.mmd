@@ -1,0 +1,40 @@
+erDiagram
+    USUARIOS ||--o{ PEDIDOS : "creates"
+    PEDIDOS ||--|{ PEDIDO_DETALLE : "contains"
+    CATALOGO ||--o{ PEDIDO_DETALLE : "appears in"
+
+    USUARIOS {
+        int id PK
+        varchar usuario UK "username"
+        varchar nombre "full name"
+        varchar clave_hash "hashed password"
+        timestamp creado "created at"
+    }
+    CATALOGO {
+        int id PK
+        enum area "Printing or Food"
+        varchar categoria "category"
+        varchar nombre "name"
+        decimal precio "price"
+        varchar unidad "unit: page, plate..."
+        tinyint activo "1 available, 0 not"
+    }
+    PEDIDOS {
+        int id PK
+        varchar cliente "customer"
+        varchar telefono "phone"
+        varchar tipo "order type"
+        varchar estado "status"
+        text notas "notes"
+        decimal total
+        int usuario_id FK
+        timestamp fecha "date"
+    }
+    PEDIDO_DETALLE {
+        int id PK
+        int pedido_id FK
+        int catalogo_id FK
+        int cantidad "quantity"
+        decimal precio_unitario "unit price"
+        decimal subtotal
+    }

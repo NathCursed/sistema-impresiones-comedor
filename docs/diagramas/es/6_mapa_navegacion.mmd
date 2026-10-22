@@ -1,0 +1,13 @@
+flowchart TD
+    LOGIN["login.php<br/>Iniciar sesión"] --> INICIO["index.php<br/>Inicio / resumen del día"]
+    INICIO --> NUEVO["pedido_nuevo.php<br/>Nuevo pedido"]
+    INICIO --> PED["pedidos.php<br/>Lista de pedidos"]
+    INICIO --> CAT["catalogo.php<br/>Catálogo"]
+    INICIO --> REP["reportes.php<br/>Reportes"]
+    INICIO --> CLAVE["clave.php<br/>Cambiar contraseña"]
+    INICIO --> SALIR["logout.php<br/>Salir"]
+    NUEVO --> VER["pedido_ver.php<br/>Detalle y ticket"]
+    PED --> VER
+    VER --> EST["pedido_estado.php<br/>Cambia el estado"]
+    CAT --> FORM["catalogo_form.php<br/>Agregar / editar"]
+    CAT --> ELIM["catalogo_eliminar.php<br/>Eliminar / desactivar"]

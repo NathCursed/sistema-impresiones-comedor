@@ -1,0 +1,13 @@
+flowchart LR
+    U(("Business<br/>user"))
+    subgraph SIS["Printing & Food System"]
+        C1(["Log in / log out"])
+        C2(["Register order"])
+        C3(["View and search orders"])
+        C4(["Change order status"])
+        C5(["Print ticket"])
+        C6(["Manage catalog"])
+        C7(["View sales reports"])
+        C8(["Change password"])
+    end
+    U --- C1 & C2 & C3 & C4 & C5 & C6 & C7 & C8

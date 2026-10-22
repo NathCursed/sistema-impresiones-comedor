@@ -1,0 +1,15 @@
+stateDiagram-v2
+    [*] --> Pendiente : order is created
+    Pendiente --> En_proceso : work starts
+    En_proceso --> Listo : finished
+    Listo --> Entregado : customer picks it up
+    Pendiente --> Cancelado
+    En_proceso --> Cancelado
+    Listo --> Cancelado
+    Entregado --> [*]
+    Cancelado --> [*]
+    Pendiente : Pendiente (Pending)
+    En_proceso : En proceso (In progress)
+    Listo : Listo (Ready)
+    Entregado : Entregado (Delivered)
+    Cancelado : Cancelado (Cancelled, not counted in sales)

@@ -1,0 +1,13 @@
+flowchart LR
+    U(("Usuario<br/>del negocio"))
+    subgraph SIS["Sistema de Impresiones y Comedor"]
+        C1(["Iniciar / cerrar sesión"])
+        C2(["Registrar pedido"])
+        C3(["Ver y buscar pedidos"])
+        C4(["Cambiar estado del pedido"])
+        C5(["Imprimir ticket"])
+        C6(["Administrar catálogo"])
+        C7(["Ver reportes de ventas"])
+        C8(["Cambiar contraseña"])
+    end
+    U --- C1 & C2 & C3 & C4 & C5 & C6 & C7 & C8

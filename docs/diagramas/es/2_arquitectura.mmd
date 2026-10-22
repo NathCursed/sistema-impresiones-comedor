@@ -1,0 +1,8 @@
+flowchart LR
+    U["Usuario<br/>(cajero / dueño)"] -->|Navegador web| A
+    subgraph XAMPP["Servidor XAMPP (Ubuntu)"]
+        A["Apache<br/>servidor web"] --> P["PHP 8<br/>páginas .php"]
+        P -->|PDO + consultas preparadas| M[("MySQL / MariaDB<br/>BD: impresiones_comedor")]
+    end
+    P --> C["config.php<br/>conexión, sesión, seguridad"]
+    P --> V["assets/<br/>style.css, app.js"]
